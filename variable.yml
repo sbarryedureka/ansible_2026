@@ -1,0 +1,14 @@
+---
+- name: variables demo
+  vars:
+    myuser: anna
+  hosts: all
+  tasks:
+    - name: generate a message
+      debug:
+        msg: pull the value of the variable {{ myuser }} 
+    - name: creating usser {{ myuser }}
+      user:
+        name: "{{ myuser }}"
+        shell: /bi/bash
+        state: absent

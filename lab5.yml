@@ -1,0 +1,27 @@
+---
+- name: run a webserver
+  gather_facts: no
+  hosts: node1
+  tasks:
+    - name: installing httpd
+      dnf:
+        name: httpd
+        state: latest
+
+    - name: start and enable httpd
+      service:
+        name: httpd
+        enabled: yes
+
+    - name: open port in firewall
+      firewalld:
+        service: http
+        state: enabled
+        immediate: true
+        permanent: yes
+          
+    - name: copy a prepared file
+      copy: 
+        src: /tmp/index.html
+        dest: /var/www/html/
+
