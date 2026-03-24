@@ -1,0 +1,16 @@
+---
+- name: error demo
+  hosts: node1
+  ignore_errors: true
+  tasks:
+    - name: copy file
+      copy:
+        src: /tmp/hello
+        dest: /tmp/
+    - name: showing syntax error
+      debug:
+        msg: this is a syntax error
+
+    - name: running this
+      debug:
+        msg: running this
