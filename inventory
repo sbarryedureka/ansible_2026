@@ -1,4 +1,11 @@
+
 controle
-node1
+
+[redhat]
 node2
+
+[rocky]
+node1
+
+[ubuntu]
 node3
