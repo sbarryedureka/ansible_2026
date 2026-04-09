@@ -1,0 +1,12 @@
+---
+- name: demo register
+  gather_facts: no
+  hosts: node1
+  tasks:
+    - name: checking register
+      command: date "+%Y-%m-%d"
+      register: thisdate
+
+    - name: display the varlue
+      debug:
+        var: thisdate.stdout

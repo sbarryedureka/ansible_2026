@@ -1,0 +1,8 @@
+---
+- name: installing web package {{ webpackage }}
+  hosts: all
+  tasks:
+    - name: installing {{ webpackage }}
+      package:
+        name: "{{ webpackage }}"
+        state: absent

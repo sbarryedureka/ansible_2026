@@ -1,0 +1,28 @@
+---
+- name: installing web package
+  hosts: redhat
+  tasks:
+    - name: installing {{ webpackage }}
+      yum:
+        name: "{{ webpackage }}"
+        state: latest
+    - name: starting {{ webpackage }}
+      service:
+        name: "{{ webservice }}"
+        state: started
+        enabled: yes
+
+
+- name: installing web package on Ubuntu
+  hosts: ubuntu
+  tasks:
+    - name: installing {{ webpackage }}
+      apt:
+        name: "{{ webpackage }}"
+        state: latest
+    - name: starting {{ webpackage }}
+      service:
+        name: "{{ webservice }}"
+        state: started
+        enabled: yes
+                            
